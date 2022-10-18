@@ -5,7 +5,7 @@ Text cleaning, Lemmatization, POS tagging , Bag of Words, Most frequent words, A
 # How to call it in your Python code
 ```
 import pydaisi as pyd
-document_processing_ai_temp = pyd.Daisi("goldenqueen/Document Processing AI")
+document_processing_ai = pyd.Daisi("goldenqueen/Document Processing AI")
 ```
 To convert Image into PDF file
 ```
