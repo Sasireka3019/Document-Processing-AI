@@ -394,6 +394,7 @@ def st_ui():
     st.text("Document metadata :")
     meta_data = get_metadata(doc_file)
     st.text(meta_data)
+    st.text("Extracting images in the document ...")
     img_lst = get_images(doc_file)
     # show_images(img_lst)
     for x in img_lst:
