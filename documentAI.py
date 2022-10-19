@@ -192,13 +192,23 @@ def most_frequent(doc_text):
         top = data[c].sort_values(ascending=False)
         tops = list(zip(top.index, top.values))
     return tops
-def summarize(doc_text, n = 4):
+def summarize(doc_text):
     """
     Provides Summary of the document
     :param doc_text: List of sentences of the document
     :param n: Number of lines
     :return summary: Document summary
     """
+    x = len(doc_text)
+    n = 1
+    if x >= 100:
+        n = 10
+    elif x >= 50:
+        n = 7
+    elif x >= 5:
+        n = 4
+    else:
+        n = x
     lower_text = ' '.join([w.lower() for w in doc_text])
     formatted = re.sub('[^a-zA-Z]', ' ', lower_text)
     formatted = re.sub(r'\s+', ' ', formatted)
@@ -418,8 +428,7 @@ def st_ui():
     st.text(subjectivity(keywords))
     st.text(sentence_similarity("Hello I am a document reader", "Welcome to document reader show"))
     st.text("Summary of the document :")
-    n = st.number_input("Enter number of lines of summary needed", step = 1)
-    summary = summarize(doc_text, n)
+    summary = summarize(doc_text)
     st.text(summary)
     topic = topic_modelling(doc_text)
     st.text("Topic modelling :")
